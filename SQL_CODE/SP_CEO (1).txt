@@ -1,0 +1,13 @@
+Create Procedure dbo.SP_Get_CEO
+AS
+Select*from [bgu-users\poursh].CEOS
+
+
+
+Create Procedure dbo.SP_Add_CEO   @FullName varchar(50), @Email varchar(250), @Phone varchar(20), @Gender varchar(20),@Address varchar(50) ,@AboutCEO varchar(250)
+AS
+INSERT INTO [bgu-users\poursh].CEOS
+Values (@FullName,@Email,@Phone ,@Gender,@Address,@AboutCEO)
+
+
+

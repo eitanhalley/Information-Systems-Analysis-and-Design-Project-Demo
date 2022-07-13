@@ -1,0 +1,54 @@
+ System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace SAD_20
+{
+    static class Program
+    {
+        public static System.Collections.Generic.List<Client> Clients;
+        public static System.Collections.Generic.List<Feedback> Feedbacks;
+        public static System.Collections.Generic.List<Equipment> Equipments;
+        public static System.Collections.Generic.List<CEO> CEOS;
+        [STAThread]
+
+        //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
+        public static Client seekClient(string email)
+        {
+            foreach (Client c in Clients)
+            {
+                if (c.get_email() == email)
+                    return c;
+            }
+            return null;
+        }
+
+
+        public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
+        {
+            init_clients();//אתחול הרשימה של העובדים
+            init_Feedbacks();
+            init_Equipments();
+            init_CEO();
+        }
+
+        public static void init_CEO()//מילוי המערך מתוך בסיס הנתונים
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Get_CEO";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(c);
+
+            CEOS = new List<CEO>();
+
+            while (rdr.Read())
+            {
+                GenderType GT = (GenderType)Enum.Parse(typeof(GenderType), rdr.GetValue(3).ToString());
+                CEO C = new CEO(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), GT, rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+                CEOS.Add(C);
+            }
+        }//close init_CEO

@@ -1,0 +1,41 @@
+Create Procedure dbo.Get_all_workshops
+AS
+Select*
+from [bgu-users\poursh].WORKSHOPS AS W join [bgu-users\poursh].ACTIVITYS AS A on A.ActivityID = W.ActivityID 
+
+
+CREATE PROCEDURE dbo.SP_add_Workshop @NumOfMeetings int,@Repetivity varchar(50),@EndDate date,@ActivityID int,@Email varchar(250),
+@Name varchar(50),@Description varchar(500),@Price real,@StartDate date,@Capacity int,@Location varchar(200),@SeatsLeft int
+AS
+INSERT INTO [bgu-users\poursh].ACTIVITYS
+Values(@ActivityID,@Name,@Description,@Price ,@StartDate,@Capacity,@Location,@SeatsLeft)
+
+INSERT INTO [bgu-users\poursh].WORKSHOPS
+Values(@NumOfMeetings,@Repetivity ,@EndDate ,@ActivityID ,@Email )
+
+
+
+CREATE PROCEDURE dbo.SP_Update_Workshop @id int, @numOfMeetings int, @repetivity varchar(50), @endDate date, @email varchar(250), @name varchar(50), @description varchar(500), @price real, @startDate date, @capacity int, @location varchar(200), @seatsLeft int
+AS
+Update [bgu-users\poursh].WORKSHOPS
+SET
+NumOfMeetings = @numOfMeetings, Repetivity = @repetivity, EndDate = @endDate
+
+Update [bgu-users\poursh].ACTIVITYS
+SET
+[Name] = @name, [Description] = @description, Price = @price, StartDate = @startDate, Capacity = @capacity, [Location] = @location, SeatsLeft = @seatsLeft
+WHERE ActivityID = @id
+
+
+
+CREATE PROCEDURE dbo.SP_delete_Workshop @activityID varchar(250)
+AS
+Delete from  [bgu-users\poursh].EQUIPMENTS
+WHERE ActivityID = @activityID
+
+Delete from  [bgu-users\poursh].WORKSHOPS
+WHERE ActivityID = @activityID
+
+Delete from [bgu-users\poursh].ACTIVITYS
+WHERE ActivityID = @activityID
+

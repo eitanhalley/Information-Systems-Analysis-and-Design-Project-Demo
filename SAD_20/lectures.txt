@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SAD_20
+{
+    class Lecture
+    {
+        private Double duration;
+        private LectureType lectureType;
+        private int activityID;
+        private String email;
+    
+
+    public Lecture(Double duration, LectureType lectureType, int activityID, String email)
+        {
+            this.duration = duration;
+            this.lectureType = lectureType;
+            this.activityID = activityID;
+            this.email = email;
+        }//Constructor
+
+        public Double Get_duration()
+        {
+            return this.duration;
+        }//get_Duration
+
+        public LectureType  Get_lectureType()
+        {
+            return this.lectureType;
+        }//NumOfMeetings
+
+        public int Get_activityID()
+        {
+            return this.activityID;
+        }//NumOfMeetings
+
+        public String Get_email()
+        {
+            return this.email;
+        }//NumOfMeetings
+
+        public void Set_duration(Double meetingDate)
+        {
+            this.duration = duration;
+        }//Set_meetingDate
+
+        public void Set_LectureType(LectureType lectureType)
+        {
+            this.lectureType = lectureType;
+        }//Set_lectureType
+
+        public void Set_activityID(int activityID)
+        {
+            this.activityID= activityID;
+        }//Set_activityDate
+
+        public void Set_email(String email)
+        {
+            this.email = email;
+        }//Set_email
+
+    }//Lecture class
+}//Name space

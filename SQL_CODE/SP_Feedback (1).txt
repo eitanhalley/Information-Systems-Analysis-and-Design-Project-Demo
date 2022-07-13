@@ -1,0 +1,11 @@
+Create Procedure dbo.SP_Get_Feedback
+AS
+Select*from [bgu-users\poursh].FEEDBACKS
+
+
+
+Create Procedure dbo.SP_Add_Feedback  @FeedbackID int, @FeedbackDate date , @Rank varchar(20), @FeedbackText varchar(1000),@Email_Client varchar(250) ,@ActivityID int
+AS
+INSERT INTO [bgu-users\poursh].FEEDBACKS
+Values (@FeedbackID,@FeedbackDate,@Rank,@FeedbackText ,@Email_Client,@ActivityID)
+

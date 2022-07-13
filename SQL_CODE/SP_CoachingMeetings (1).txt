@@ -1,0 +1,19 @@
+Create Procedure dbo.SP_Get_CoachingMeetings
+AS
+Select*from [bgu-users\poursh].COACHING_MEETINGS
+
+
+
+Create Procedure dbo.SP_Add_CoachingMeetings
+@meetingID int, @bookingDate date, @meetingDate date, @price money, @meetingNum int, @Email_Client varchar(250), @Email varchar(250)
+AS
+INSERT INTO [bgu-users\poursh].COACHING_MEETINGS
+values(@meetingID, @bookingDate, @meetingDate, @price ,@meetingNum ,@Email_Client ,@Email)
+
+
+
+
+Create Procedure dbo.SP_Delete_CoachingMeetings @meetingID int,@Email_Client varchar(250), @Email varchar(250)
+AS
+DELETE FROM [bgu-users\poursh].COACHING_MEETINGS
+WHERE meetingID = @meetingID And Email_Client  = @Email_Client  and Email =  @Email

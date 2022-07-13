@@ -1,0 +1,39 @@
+Create Procedure dbo.Get_all_Lectures
+AS
+Select*
+from [bgu-users\poursh].LECTURES AS L join [bgu-users\poursh].ACTIVITYS AS A
+ON L.ActivityID = A.ActivityID
+
+
+CREATE PROCEDURE dbo.SP_add_Lecture @Duration real,@LectureType varchar(20),@ActivityID int,@Email varchar(250),
+@Name varchar(50),@Description varchar(500),@Price real,@StartDate date,@Capacity int,@Location varchar(200),@SeatsLeft int
+AS
+INSERT INTO [bgu-users\poursh].ACTIVITYS
+Values(@ActivityID,@Name,@Description,@Price ,@StartDate,@Capacity,@Location,@SeatsLeft)
+
+INSERT INTO [bgu-users\poursh].LECTURES
+Values (@Duration,@LectureType,@ActivityID,@Email)
+
+
+
+CREATE PROCEDURE dbo.SP_Update_Lecture @id int, @duration int, @repetivity varchar(50), @lectureType varchar(20), @email varchar(250), @name varchar(50), @description varchar(500), @price real, @startDate date, @capacity int, @location varchar(200), @seatsLeft int
+AS
+Update  [bgu-users\poursh].LECTURES
+SET
+Duration = @duration, LectureType = @lectureType
+WHERE ActivityID = @id 
+
+Update [bgu-users\poursh].ACTIVITYS
+SET
+[Name] = @name, [Description] = @description, Price = @price, StartDate = @startDate, Capacity = @capacity, [Location] = @location, SeatsLeft = @seatsLeft
+WHERE ActivityID = @id
+
+
+CREATE PROCEDURE dbo.SP_delete_Lecture @activityID varchar(250)
+AS
+Delete from  [bgu-users\poursh].LECTURES
+WHERE ActivityID = @activityID
+
+Delete from [bgu-users\poursh].ACTIVITYS
+where ActivityID = @activityID
+

@@ -1,0 +1,15 @@
+Create Procedure dbo.SP_Get_Bookings
+AS
+Select*from [bgu-users\poursh].BOOKINGS
+
+
+Create Procedure dbo.SP_Add_Bookings   @BookingID integer, @Price money, @BookingDate Date, @BookingStatus varchar(20),@ActivityID integer ,@Email_Client varchar(250) 
+AS
+INSERT INTO [bgu-users\poursh].BOOKINGS
+Values (@BookingID,@Price,@BookingDate,@BookingStatus ,@ActivityID,@Email_Client)
+
+
+Create Procedure dbo.SP_Delete_Bookings @BookingID integer,@ActivityID integer, @Email_Client varchar(250) 
+AS
+DELETE FROM [bgu-users\poursh].BOOKINGS 
+WHERE BookingID = @BookingID And ActivityID = @ActivityID and Email_Client =  @Email_Client

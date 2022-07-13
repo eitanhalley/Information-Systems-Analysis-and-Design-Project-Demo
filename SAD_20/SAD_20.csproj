@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A2ADBA0-BC04-4229-82C6-56C8E7C7B553}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SAD_20</RootNamespace>
+    <AssemblyName>SAD_20</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.57.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Gmail.v1, Version=1.57.0.2650, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Gmail.v1.1.57.0.2650\lib\net45\Google.Apis.Gmail.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.4.7.0\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutCEO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutCEO.designer.cs">
+      <DependentUpon>AboutCEO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking.cs" />
+    <Compile Include="BookingStatus.cs" />
+    <Compile Include="BookLecture_Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookLecture_Clients.designer.cs">
+      <DependentUpon>BookLecture_Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookWorkshop_Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookWorkshop_Clients.Designer.cs">
+      <DependentUpon>BookWorkshop_Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BussinesSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BussinesSchedule.Designer.cs">
+      <DependentUpon>BussinesSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CEO.cs" />
+    <Compile Include="CEODaySchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CEODaySchedule.Designer.cs">
+      <DependentUpon>CEODaySchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs" />
+    <Compile Include="Clients_CRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients_CRUD.designer.cs">
+      <DependentUpon>Clients_CRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoachingMeeting.cs" />
+    <Compile Include="CreateNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewClient.designer.cs">
+      <DependentUpon>CreateNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Lecture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Lecture.Designer.cs">
+      <DependentUpon>Create_Lecture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD_Lectures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUD_Lectures.Designer.cs">
+      <DependentUpon>CRUD_Lectures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailyScheduale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dailyScheduale.Designer.cs">
+      <DependentUpon>dailyScheduale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteClient.Designer.cs">
+      <DependentUpon>DeleteClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_Lecture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Lecture.Designer.cs">
+      <DependentUpon>Delete_Lecture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment.cs" />
+    <Compile Include="Feedback.cs" />
+    <Compile Include="ClientsMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsMain.Designer.cs">
+      <DependentUpon>ClientsMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CEOMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CEOMain.Designer.cs">
+      <DependentUpon>CEOMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD_Workshops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUD_Workshops.Designer.cs">
+      <DependentUpon>CRUD_Workshops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateWorkshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateWorkshop.Designer.cs">
+      <DependentUpon>CreateWorkshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteWorkshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteWorkshop.Designer.cs">
+      <DependentUpon>DeleteWorkshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SchedualeCoachingMeeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SchedualeCoachingMeeting.Designer.cs">
+      <DependentUpon>SchedualeCoachingMeeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClient.Designer.cs">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Lectures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_Lectures.Designer.cs">
+      <DependentUpon>Update_Lectures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDaysCEO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDaysCEO.Designer.cs">
+      <DependentUpon>UserControlDaysCEO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClients.Designer.cs">
+      <DependentUpon>ViewClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCoachingMeetings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCoachingMeetings.Designer.cs">
+      <DependentUpon>ViewCoachingMeetings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewLectures_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewLectures_Client.Designer.cs">
+      <DependentUpon>ViewLectures_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWorkshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewWorkshop.Designer.cs">
+      <DependentUpon>ViewWorkshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateWorkshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateWorkshop.Designer.cs">
+      <DependentUpon>UpdateWorkshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendFeedback.Designer.cs">
+      <DependentUpon>SendFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lecture.cs" />
+    <Compile Include="LectureType.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenderType.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rank.cs" />
+    <Compile Include="SAD_20DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAD_20DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_CON.cs" />
+    <Compile Include="ViewWorkshops_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewWorkshops_Client.Designer.cs">
+      <DependentUpon>ViewWorkshops_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View_Lectures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View_Lectures.Designer.cs">
+      <DependentUpon>View_Lectures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Workshop.cs" />
+    <Compile Include="WorkshopEquipment.cs" />
+    <EmbeddedResource Include="AboutCEO.resx">
+      <DependentUpon>AboutCEO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookLecture_Clients.resx">
+      <DependentUpon>BookLecture_Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookWorkshop_Clients.resx">
+      <DependentUpon>BookWorkshop_Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BussinesSchedule.resx">
+      <DependentUpon>BussinesSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CEODaySchedule.resx">
+      <DependentUpon>CEODaySchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CEOMain.resx">
+      <DependentUpon>CEOMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsMain.resx">
+      <DependentUpon>ClientsMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients_CRUD.resx">
+      <DependentUpon>Clients_CRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewClient.resx">
+      <DependentUpon>CreateNewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateWorkshop.resx">
+      <DependentUpon>CreateWorkshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Lecture.resx">
+      <DependentUpon>Create_Lecture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_Lectures.resx">
+      <DependentUpon>CRUD_Lectures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_Workshops.resx">
+      <DependentUpon>CRUD_Workshops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailyScheduale.resx">
+      <DependentUpon>dailyScheduale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteClient.resx">
+      <DependentUpon>DeleteClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteWorkshop.resx">
+      <DependentUpon>DeleteWorkshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete_Lecture.resx">
+      <DependentUpon>Delete_Lecture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SchedualeCoachingMeeting.resx">
+      <DependentUpon>SchedualeCoachingMeeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendFeedback.resx">
+      <DependentUpon>SendFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UpdateClient.resx">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateWorkshop.resx">
+      <DependentUpon>UpdateWorkshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update_Lectures.resx">
+      <DependentUpon>Update_Lectures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDaysCEO.resx">
+      <DependentUpon>UserControlDaysCEO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClients.resx">
+      <DependentUpon>ViewClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCoachingMeetings.resx">
+      <DependentUpon>ViewCoachingMeetings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewLectures_Client.resx">
+      <DependentUpon>ViewLectures_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewWorkshop.resx">
+      <DependentUpon>ViewWorkshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewWorkshops_Client.resx">
+      <DependentUpon>ViewWorkshops_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View_Lectures.resx">
+      <DependentUpon>View_Lectures.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SAD_20DataSet.xsc">
+      <DependentUpon>SAD_20DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SAD_20DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SAD_20DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SAD_20DataSet.xss">
+      <DependentUpon>SAD_20DataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisiblePic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ronnie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backgroun_nice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_ronnie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Cochran.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_gil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_eithan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_omer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_shahaf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_itzik.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_may.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

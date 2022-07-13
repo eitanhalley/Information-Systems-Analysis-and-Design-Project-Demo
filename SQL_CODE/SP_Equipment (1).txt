@@ -1,0 +1,15 @@
+Create Procedure dbo.SP_Get_Equipment
+AS
+Select*from [bgu-users\poursh].EQUIPMENTS
+
+
+Create Procedure dbo.SP_Add_Equipment   @equipmentID int, @workShopEquipment varchar(20), @quantity int, @ActivityID int 
+AS
+INSERT INTO [bgu-users\poursh].EQUIPMENTS
+Values (@equipmentID, @workShopEquipment,@quantity , @ActivityID)
+
+
+Create Procedure dbo.SP_Delete_Equipment @equipmentID int,@ActivityID integer
+AS
+DELETE FROM [bgu-users\poursh].EQUIPMENTS 
+WHERE equipmentID = @equipmentID And ActivityID = @ActivityID
